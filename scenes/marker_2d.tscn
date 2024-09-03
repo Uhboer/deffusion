@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://clj7e1gji50kh"]
+
+[ext_resource type="Script" path="res://scenes/marker_2d.gd" id="1_o1dlb"]
+[ext_resource type="PackedScene" uid="uid://ctu1nl0jsblb7" path="res://scenes/bullet.tscn" id="2_bward"]
+
+[node name="Marker2D" type="Node2D"]
+script = ExtResource("1_o1dlb")
+bullet = ExtResource("2_bward")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node"]

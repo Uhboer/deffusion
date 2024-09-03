@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://0r76ngbqb2rc"]
+[gd_scene load_steps=3 format=3 uid="uid://0r76ngbqb2rc"]
 
 [ext_resource type="PackedScene" uid="uid://dla1hwv3c2ir2" path="res://scenes/character_body_2d.tscn" id="1_wwfsk"]
+[ext_resource type="PackedScene" uid="uid://cd78mdk0ll67h" path="res://scenes/Mobs/mobs.tscn" id="2_41tdi"]
 
 [node name="world" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_wwfsk")]
 position = Vector2(0, 8)
+
+[node name="Mobs" parent="." instance=ExtResource("2_41tdi")]
+
+[node name="Mobs2" parent="." instance=ExtResource("2_41tdi")]
+position = Vector2(37, 21)
+metadata/_edit_group_ = true

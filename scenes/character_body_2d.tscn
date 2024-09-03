@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dla1hwv3c2ir2"]
+[gd_scene load_steps=6 format=3 uid="uid://dla1hwv3c2ir2"]
 
 [ext_resource type="Texture2D" uid="uid://bqaxo6rta3ou6" path="res://icon.svg" id="1_2ew3p"]
+[ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_5cua8"]
+[ext_resource type="PackedScene" uid="uid://ctu1nl0jsblb7" path="res://scenes/bullet.tscn" id="2_qq228"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jx8ht"]
 
@@ -11,11 +13,13 @@ animations = [{
 "texture": ExtResource("1_2ew3p")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
 "speed": 5.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_5cua8")
+bullet = ExtResource("2_qq228")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jx8ht")
@@ -23,3 +27,13 @@ shape = SubResource("CircleShape2D_jx8ht")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.140625, 0.140625)
 sprite_frames = SubResource("SpriteFrames_few0b")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node"]
+position = Vector2(20, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.065, 2.065)

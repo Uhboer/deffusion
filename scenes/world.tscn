@@ -8,5 +8,7 @@
 [node name="player" parent="." instance=ExtResource("1_wwfsk")]
 position = Vector2(0, 8)
 
-[node name="zombie" parent="." instance=ExtResource("3_noya1")]
+[node name="Mobs" type="Node2D" parent="."]
+
+[node name="zombie" parent="Mobs" instance=ExtResource("3_noya1")]
 position = Vector2(128, -44)

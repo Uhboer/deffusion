@@ -110,4 +110,11 @@ autoplay = "Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectZone"]
 shape = SubResource("CircleShape2D_kvxg0")
 
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 19.0
+offset_bottom = -2.0
+text = "1488"
+
 [connection signal="body_entered" from="detectZone" to="." method="_on_detect_zone_body_entered"]

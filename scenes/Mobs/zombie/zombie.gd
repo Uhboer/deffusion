@@ -7,8 +7,10 @@ var alive = true
 var health = 100
 
 func _physics_process(delta: float) -> void:
-	var player = $"../player"
+	var player = $"../../player"
 	var direction = (player.position - self.position).normalized()
+	
+	$Label.text = str(health)
 	
 	if alive == true:
 		if direction.x < 0:
@@ -19,8 +21,6 @@ func _physics_process(delta: float) -> void:
 		if chase == true:
 			anim.play("Run")
 			velocity = direction * SPEED
-	for hp in health:
-		print(health)
 	move_and_slide()
 
 func _on_detect_zone_body_entered(body: Node2D) -> void:

@@ -5,8 +5,9 @@ var speed = 20
 func _physics_process(delta):
 	position += transform.x * speed
 
-func _on_area_entered(area):
-	if area.get_parent().name == "enemy":
+func _on_body_entered(body: Node2D):
+	if body.get_parent().name == "Mobs":
+		body.health -= 10
 		queue_free()
 	else:
 		queue_free()

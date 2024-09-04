@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0r76ngbqb2rc"]
+[gd_scene load_steps=3 format=3 uid="uid://0r76ngbqb2rc"]
 
 [ext_resource type="PackedScene" uid="uid://dla1hwv3c2ir2" path="res://scenes/character_body_2d.tscn" id="1_wwfsk"]
-[ext_resource type="PackedScene" uid="uid://dqrmekoo4aiu4" path="res://scenes/marker_2d.tscn" id="2_bugev"]
 [ext_resource type="PackedScene" uid="uid://by7vcldpp7kdp" path="res://scenes/Mobs/zombie/zombie.tscn" id="3_noya1"]
 
 [node name="world" type="Node2D"]
-
-[node name="Marker2D" parent="." instance=ExtResource("2_bugev")]
 
 [node name="player" parent="." instance=ExtResource("1_wwfsk")]
 position = Vector2(0, 8)

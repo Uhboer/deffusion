@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6g07yca5gwy7" path="res://sprites/Player/Zombie.png" id="2_gd7f3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvsrv"]
+size = Vector2(7, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fuc16"]
 atlas = ExtResource("2_gd7f3")
@@ -95,6 +96,7 @@ radius = 78.59
 script = ExtResource("1_30j87")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_gvsrv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

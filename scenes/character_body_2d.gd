@@ -6,6 +6,7 @@ const SPEED = 500
 
 @export var bullet : PackedScene
 
+var health = 100
 
 func _physics_process(delta):
 	get_input()
@@ -25,3 +26,6 @@ func get_input():
 		$AnimatedSprite2D.flip_h = true
 	if Input.is_action_just_pressed("D"):
 		$AnimatedSprite2D.flip_h = false
+	
+	if health <= 0:
+		queue_free()

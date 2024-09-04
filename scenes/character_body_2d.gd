@@ -9,7 +9,7 @@ const SPEED = 500
 
 func _physics_process(delta):
 	get_input()
-	
+
 	move_and_slide()
 
 

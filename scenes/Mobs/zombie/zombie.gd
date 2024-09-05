@@ -21,7 +21,16 @@ func _physics_process(delta: float) -> void:
 		if chase == true:
 			anim.play("Run")
 			velocity = direction * SPEED
+			
+	death()
 	move_and_slide()
+
+func death():
+	if health <= 0: 
+		#TODO ебануть анимацию
+		# await anim.animation_finish
+		queue_free() #затычка
+		alive = false
 
 func _on_detect_zone_body_entered(body: Node2D) -> void:
 	if body.name == "player":

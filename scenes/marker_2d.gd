@@ -18,4 +18,3 @@ func shoot():
 	add_child(b)
 	b.transform = $Node/Marker2D.global_transform
 	anim.play("ShootgunPump")
-	

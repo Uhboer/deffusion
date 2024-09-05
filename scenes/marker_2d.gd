@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var bullet_scene : PackedScene
+@export var bullet : PackedScene
 
 @onready var character = $".."
 @onready var anim = $wearpon
@@ -16,8 +16,12 @@ func _process(delta):
 	
 
 func shoot():
-	var b = bullet.instantiate()
-	add_child(b)
-	b.transform = $Node/Marker2D.global_transform
-	anim.play("ShootgunPump")
+	if shooted == false:
+		shooted = true
+		var b = bullet.instantiate()
+		add_child(b)
+		b.transform = $Node/Marker2D.global_transform
+		anim.play("ShootgunPump")
+		await get_tree().create_timer(1).timeout
+		shooted = false
 	

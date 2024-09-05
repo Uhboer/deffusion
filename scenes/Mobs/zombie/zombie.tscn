@@ -89,8 +89,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kvxg0"]
-radius = 78.59
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrawt"]
+radius = 146.031
 
 [node name="zombie" type="CharacterBody2D"]
 script = ExtResource("1_30j87")
@@ -108,7 +108,7 @@ autoplay = "Idle"
 [node name="detectZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectZone"]
-shape = SubResource("CircleShape2D_kvxg0")
+shape = SubResource("CircleShape2D_vrawt")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -18.0

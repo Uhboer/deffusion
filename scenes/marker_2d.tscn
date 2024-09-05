@@ -1,13 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqrmekoo4aiu4"]
+[gd_scene load_steps=9 format=3 uid="uid://dqrmekoo4aiu4"]
 
 [ext_resource type="Script" path="res://scenes/marker_2d.gd" id="1_o1dlb"]
+[ext_resource type="PackedScene" uid="uid://nbiw0x8tmv4b" path="res://scenes/bullet.tscn" id="2_d2akl"]
 [ext_resource type="PackedScene" uid="uid://bfxa578atj7m8" path="res://scenes/bullet_shotgun.tscn" id="2_qqlsa"]
 [ext_resource type="Texture2D" uid="uid://pkaoq3ti006i" path="res://sprites/Guns/Shotgun/shotgun.png" id="3_jv4pe"]
+[ext_resource type="Texture2D" uid="uid://bqaxo6rta3ou6" path="res://icon.svg" id="3_mxsef"]
 [ext_resource type="Texture2D" uid="uid://bqlmqvte0qxom" path="res://sprites/Guns/Shotgun/shotgun-rack1.png" id="4_p43ng"]
 [ext_resource type="Texture2D" uid="uid://7nrsbtc7mk28" path="res://sprites/Guns/Shotgun/shotgun-rack2.png" id="5_freao"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2dx2o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mxsef")
+}],
+"loop": true,
+"name": &"AK",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_jv4pe")
@@ -39,13 +49,15 @@ animations = [{
 
 [node name="Marker2D" type="Node2D"]
 script = ExtResource("1_o1dlb")
-bullet = ExtResource("2_qqlsa")
+AKbullet = ExtResource("2_d2akl")
+SHOOTGUNbullet = ExtResource("2_qqlsa")
 
 [node name="wearpon" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)
 scale = Vector2(0.5625, 0.5625)
 sprite_frames = SubResource("SpriteFrames_2dx2o")
-animation = &"ShootgunPump"
+animation = &"AK"
+autoplay = "AK"
 
 [node name="Node" type="Node" parent="."]
 

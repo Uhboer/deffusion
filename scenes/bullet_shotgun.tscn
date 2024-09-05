@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgx7g6suj2nwi" path="res://sprites/Guns/Misc/bullet.png" id="1_p7hy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp8x8"]
-size = Vector2(8, 4)
+size = Vector2(8, 22)
 
 [node name="bullet_shotgun" type="Area2D"]
 script = ExtResource("1_jer4l")
@@ -14,20 +14,11 @@ position = Vector2(4, 0)
 scale = Vector2(0.3125, 0.1875)
 texture = ExtResource("1_p7hy0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 0)
-shape = SubResource("RectangleShape2D_cp8x8")
-
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(3.78393, 7.75571)
 rotation = 0.41334
 scale = Vector2(0.3125, 0.1875)
 texture = ExtResource("1_p7hy0")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(3.78393, 7.75571)
-rotation = 0.41334
-shape = SubResource("RectangleShape2D_cp8x8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(3.82022, -7.6981)
@@ -35,9 +26,8 @@ rotation = -0.601103
 scale = Vector2(0.3125, 0.1875)
 texture = ExtResource("1_p7hy0")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(3.82022, -7.6981)
-rotation = -0.601102
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_cp8x8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

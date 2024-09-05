@@ -39,7 +39,7 @@ animations = [{
 
 [node name="Marker2D" type="Node2D"]
 script = ExtResource("1_o1dlb")
-bullet = ExtResource("2_uwcaw")
+bullet_scene = ExtResource("2_uwcaw")
 
 [node name="wearpon" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)
@@ -50,3 +50,4 @@ animation = &"ShootgunPump"
 [node name="Node" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="Node"]
+position = Vector2(10, 1)

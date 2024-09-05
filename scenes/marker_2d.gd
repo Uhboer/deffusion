@@ -16,11 +16,8 @@ func _process(delta):
 	
 
 func shoot():
-	if  shooted == false:
-		shooted = true
-		var b = bullet_scene.instantiate()
-		add_child(b)
-		b.transform = $Node/Marker2D.global_transform
-		anim.play("ShootgunPump")
-		await get_tree().create_timer(1.0).timeout
-		shooted = false
+	var b = bullet.instantiate()
+	add_child(b)
+	b.transform = $Node/Marker2D.global_transform
+	anim.play("ShootgunPump")
+	

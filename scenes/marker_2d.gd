@@ -28,7 +28,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("shoot") and shootgun == true:
 		shoot()
 		
-	if Input.is_action_just_pressed("shoot") and AK == true:
+	if Input.is_action_pressed("shoot") and AK == true:
 		shootAK()
 	
 
@@ -44,7 +44,10 @@ func shoot():
 
 func shootAK():
 	if shooted == false:
+		shooted = true
 		var b = AKbullet.instantiate()
 		add_child(b)
 		b.transform = $Node/Marker2D.global_transform
-		anim.play("AK")
+		anim.play("AKShoot")
+		await get_tree().create_timer(0.2).timeout
+		shooted = false

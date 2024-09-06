@@ -1,22 +1,46 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqrmekoo4aiu4"]
+[gd_scene load_steps=13 format=3 uid="uid://dqrmekoo4aiu4"]
 
 [ext_resource type="Script" path="res://scenes/marker_2d.gd" id="1_o1dlb"]
 [ext_resource type="PackedScene" uid="uid://nbiw0x8tmv4b" path="res://scenes/bullet.tscn" id="2_d2akl"]
 [ext_resource type="PackedScene" uid="uid://bfxa578atj7m8" path="res://scenes/bullet_shotgun.tscn" id="2_qqlsa"]
 [ext_resource type="Texture2D" uid="uid://pkaoq3ti006i" path="res://sprites/Guns/Shotgun/shotgun.png" id="3_jv4pe"]
-[ext_resource type="Texture2D" uid="uid://bqaxo6rta3ou6" path="res://icon.svg" id="3_mxsef"]
+[ext_resource type="Texture2D" uid="uid://mhk5t5xq24m6" path="res://sprites/Guns/AK74/Sprite-0001.png" id="4_f1xu0"]
 [ext_resource type="Texture2D" uid="uid://bqlmqvte0qxom" path="res://sprites/Guns/Shotgun/shotgun-rack1.png" id="4_p43ng"]
 [ext_resource type="Texture2D" uid="uid://7nrsbtc7mk28" path="res://sprites/Guns/Shotgun/shotgun-rack2.png" id="5_freao"]
+[ext_resource type="Texture2D" uid="uid://clvky3ntjbm05" path="res://sprites/Guns/AK74/Sprite-0002.png" id="5_hhnte"]
+[ext_resource type="Texture2D" uid="uid://dgd3o1rhqw05d" path="res://sprites/Guns/AK74/Sprite-0003.png" id="6_lu2pl"]
+[ext_resource type="Texture2D" uid="uid://u1x57jaia08k" path="res://sprites/Guns/AK74/Sprite-0004.png" id="7_421wn"]
+[ext_resource type="Texture2D" uid="uid://sf6cryei8lp7" path="res://sprites/Guns/AK74/Sprite-0005.png" id="8_v5gvu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2dx2o"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_mxsef")
+"texture": ExtResource("4_f1xu0")
 }],
 "loop": true,
 "name": &"AK",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f1xu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hhnte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lu2pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_421wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v5gvu")
+}],
+"loop": false,
+"name": &"AKShoot",
+"speed": 26.15
 }, {
 "frames": [{
 "duration": 1.0,
@@ -56,8 +80,10 @@ SHOOTGUNbullet = ExtResource("2_qqlsa")
 position = Vector2(1, 2)
 scale = Vector2(0.5625, 0.5625)
 sprite_frames = SubResource("SpriteFrames_2dx2o")
-animation = &"AK"
+animation = &"AKShoot"
 autoplay = "AK"
+frame = 4
+frame_progress = 1.0
 
 [node name="Node" type="Node" parent="."]
 

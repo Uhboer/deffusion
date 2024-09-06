@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bckmmctayvou0"]
+[gd_scene load_steps=17 format=3 uid="uid://bckmmctayvou0"]
 
 [ext_resource type="Script" path="res://scenes/Mobs/topZombie/top_zombie.gd" id="1_p6jj8"]
 [ext_resource type="Texture2D" uid="uid://bqq4xd0srr07t" path="res://sprites/Player/ZombieHard.png" id="1_v4mgl"]
@@ -92,6 +92,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7jfou"]
 radius = 146.031
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fux0m"]
+size = Vector2(16, 16)
+
 [node name="topZombie" type="CharacterBody2D"]
 script = ExtResource("1_p6jj8")
 
@@ -116,4 +119,11 @@ offset_right = 19.0
 offset_bottom = -2.0
 text = "1488"
 
+[node name="attackZone2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackZone2"]
+shape = SubResource("RectangleShape2D_fux0m")
+
 [connection signal="body_entered" from="detectZone" to="." method="_on_detect_zone_body_entered"]
+[connection signal="body_entered" from="attackZone2" to="." method="_on_attack_zone_2_body_entered"]
+[connection signal="body_exited" from="attackZone2" to="." method="_on_attack_zone_2_body_exited"]

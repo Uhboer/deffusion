@@ -13,6 +13,9 @@ var shootgun = false
 var AKmagaz = 30
 var AKall = 100
 
+var shootgunall = 50
+var shootgunmagaz = 8
+
 func _process(delta):
 	look_at(get_global_mouse_position())
 	
@@ -28,27 +31,30 @@ func _process(delta):
 	
 	#убрать потом
 	$Label.text = str(AKmagaz, "/", AKall)
+	$Label2.text = str(shootgunmagaz, "/", shootgunall)
 	
 	
-	
-	if Input.is_action_just_pressed("shoot") and shootgun == true:
+	if Input.is_action_just_pressed("shoot") and shootgun == true and shootgunmagaz > 0:
 		shoot()
 		
 	if Input.is_action_pressed("shoot") and AK == true and AKmagaz > 0:
 		shootAK()
 	
-	if Input.is_action_just_pressed("R"):
+	if Input.is_action_just_pressed("R") and AK == true:
 		if AKall >= 0 and AKmagaz < 30:
 			var AKrezerv = 30 - AKmagaz
 			AKall -= AKrezerv
 			AKmagaz += AKrezerv
-	
-	
-	
+	if Input.is_action_just_pressed("R") and shootgun == true:
+		if shootgunall >= 0 and shootgunmagaz < 8:
+			var shootgunrezerv = 8 - shootgunmagaz
+			shootgunall -= shootgunrezerv
+			shootgunmagaz += shootgunrezerv
 
 func shoot():
 	if shooted == false:
 		shooted = true
+		shootgunmagaz -= 1
 		var b = SHOOTGUNbullet.instantiate()
 		add_child(b)
 		b.transform = $Node/Marker2D.global_transform

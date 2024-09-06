@@ -109,3 +109,10 @@ frame_progress = 0.050729
 zoom = Vector2(3, 3)
 
 [node name="Marker2D" parent="." instance=ExtResource("4_86gkl")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 19.0
+offset_bottom = -2.0
+text = "1488"

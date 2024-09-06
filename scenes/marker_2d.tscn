@@ -89,3 +89,11 @@ frame_progress = 1.0
 
 [node name="Marker2D" type="Marker2D" parent="Node"]
 position = Vector2(10, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -1.0
+theme_override_font_sizes/font_size = 11
+text = "30/100"

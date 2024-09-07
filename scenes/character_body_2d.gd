@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 
-const SPEED = 500
+const SPEED = 250
 
 @export var bullet : PackedScene
+
 
 var health = 100
 var alive = true
@@ -13,7 +14,6 @@ func _physics_process(delta):
 	if not alive:
 		return
 	get_input()
-	label()
 	move_and_slide()
 	death()
 
@@ -37,5 +37,3 @@ func death():
 		# anim.play("death")
 		queue_free()
 		
-func label():
-	$Label.text = str(health)

@@ -86,7 +86,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vrawt"]

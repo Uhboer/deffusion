@@ -11,13 +11,15 @@ var AK = true
 var shootgun = false
 
 var AKmagaz = 30
-var AKall = 100
+var AKall = 40 #поставить 100
 
 var shootgunall = 50
 var shootgunmagaz = 8
 
 func _process(delta):
 	look_at(get_global_mouse_position())
+	
+	
 	
 	if Input.is_action_just_pressed("1"):
 		anim.play("AK")
@@ -30,7 +32,6 @@ func _process(delta):
 		AK = false
 	
 	#убрать потом
-	$Label.text = str(AKmagaz, "/", AKall)
 	$Label2.text = str(shootgunmagaz, "/", shootgunall)
 	
 	
@@ -40,16 +41,27 @@ func _process(delta):
 	if Input.is_action_pressed("shoot") and AK == true and AKmagaz > 0:
 		shootAK()
 	
+	
+	
+	AKmagaz = clamp(AKmagaz, 0, 30)
+	AKall = clamp(AKall,0, 999999999999)
+	shootgunmagaz = clamp(shootgunmagaz, 0, 8)
 	if Input.is_action_just_pressed("R") and AK == true:
-		if AKall >= 0 and AKmagaz < 30:
+		if AKall >= 30 and AKmagaz < 30 and AKall != 0:
 			var AKrezerv = 30 - AKmagaz
 			AKall -= AKrezerv
 			AKmagaz += AKrezerv
+		elif AKall > 0:
+			var AKrezerv = AKall
+			AKmagaz += AKrezerv
+			AKall -= AKrezerv
+
 	if Input.is_action_just_pressed("R") and shootgun == true:
 		if shootgunall >= 0 and shootgunmagaz < 8:
 			var shootgunrezerv = 8 - shootgunmagaz
 			shootgunall -= shootgunrezerv
 			shootgunmagaz += shootgunrezerv
+
 
 func shoot():
 	if shooted == false:

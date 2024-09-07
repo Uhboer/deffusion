@@ -1,13 +1,15 @@
 extends CharacterBody2D
+class_name TopZombie
 @onready var anim = $AnimatedSprite2D
-@onready var attack_zone = $attackZone2/CollisionShape2D
+@onready var attack_zone = $attackZone/CollisionShape2D
+const RANDOM_MOVE_DISTANCE = 50.0
+const RANDOM_MOVE_TIME = 2.0 
 const SPEED = 200.0
 var alive = true
 var health = 40
 var damage = 10
 var chase = false
 var attack = true
-var armor = 0.2
 
 func _physics_process(delta: float) -> void:
 	if not alive:
@@ -24,8 +26,11 @@ func _physics_process(delta: float) -> void:
 			if chase == true:
 				anim.play("Run")
 				velocity = direction * SPEED
-	death()
+	else:
+		velocity = Vector2.ZERO
 	move_and_slide()
+	death()
+
 func death():
 	if health <= 0: 
 		#TODO ебануть анимацию
@@ -37,10 +42,11 @@ func _on_detect_zone_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		chase = true
 
-func _on_attack_zone_2_body_entered(body: Node2D) -> void:
+func _on_attack_zone_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		while is_instance_valid(body) and body.alive:
 			attack = true
+			anim.play("Attack")
 			body.health -= damage
 			attack_zone.disabled = true 
 			await get_tree().create_timer(1).timeout
@@ -48,6 +54,6 @@ func _on_attack_zone_2_body_entered(body: Node2D) -> void:
 			if attack == false:
 				break
 
-func _on_attack_zone_2_body_exited(body: Node2D) -> void:
+func _on_attack_zone_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		attack = false

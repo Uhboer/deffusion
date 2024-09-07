@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwg32ycfph4aq"]
+
+[ext_resource type="Script" path="res://scenes/Mobs/spawners/spawnZombie.gd" id="1_wmaff"]
+
+[node name="spawnZombie" type="Node2D"]
+position = Vector2(6, 7)
+script = ExtResource("1_wmaff")
+
+[node name="Timer" type="Timer" parent="."]
+physics_interpolation_mode = 1
+process_callback = 0
+wait_time = 1.985
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

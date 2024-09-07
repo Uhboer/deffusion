@@ -7,7 +7,7 @@ var alive = true
 var health = 40
 var damage = 10
 var chase = false
-var attack = true
+var attack = false
 
 func _physics_process(delta: float) -> void:
 	if not alive:
@@ -24,8 +24,14 @@ func _physics_process(delta: float) -> void:
 			if chase == true:
 				anim.play("Run")
 				velocity = direction * SPEED
-	death()
+		if attack == true and alive == true:
+			anim.play("Attack")
+			await anim.animation_finished
+	else:
+		velocity = Vector2.ZERO
 	move_and_slide()
+	death()
+
 func death():
 	if health <= 0: 
 		#TODO ебануть анимацию

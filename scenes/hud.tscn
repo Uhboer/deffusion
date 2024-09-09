@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://p82dv8rptal7"]
+[gd_scene load_steps=6 format=3 uid="uid://p82dv8rptal7"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_ia4bn"]
 [ext_resource type="Texture2D" uid="uid://c0q73ud044b6e" path="res://sprites/Player/UI/hpbarmax.png" id="2_oo2s6"]
 [ext_resource type="Texture2D" uid="uid://d370j8g5rvj6d" path="res://sprites/Guns/Misc/7 62.png" id="3_6ltca"]
 [ext_resource type="FontFile" uid="uid://bhjkv0s1s3tj" path="res://fonts/KarmaFuture.ttf" id="4_c77gf"]
+[ext_resource type="Texture2D" uid="uid://bt1ivy8qwafyc" path="res://sprites/Guns/Misc/12g.png" id="4_r0j4g"]
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_ia4bn")
@@ -18,6 +19,11 @@ texture_progress = ExtResource("2_oo2s6")
 position = Vector2(597, 317)
 texture = ExtResource("3_6ltca")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(596, 274)
+scale = Vector2(0.39, 0.42)
+texture = ExtResource("4_r0j4g")
+
 [node name="AKammo" type="Label" parent="."]
 offset_left = 514.0
 offset_top = 307.0
@@ -25,3 +31,11 @@ offset_right = 576.0
 offset_bottom = 330.0
 theme_override_fonts/font = ExtResource("4_c77gf")
 text = "30/100"
+
+[node name="shoogunammo" type="Label" parent="."]
+offset_left = 514.0
+offset_top = 268.0
+offset_right = 554.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("4_c77gf")
+text = "8/50"

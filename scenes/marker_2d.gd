@@ -11,7 +11,7 @@ var AK = true
 var shootgun = false
 
 var AKmagaz = 30
-var AKall = 40 #поставить 100
+var AKall = 100
 
 var shootgunall = 50
 var shootgunmagaz = 8
@@ -31,8 +31,6 @@ func _process(delta):
 		shootgun = true
 		AK = false
 	
-	#убрать потом
-	$Label2.text = str(shootgunmagaz, "/", shootgunall)
 	
 	
 	if Input.is_action_just_pressed("shoot") and shootgun == true and shootgunmagaz > 0:
@@ -46,6 +44,7 @@ func _process(delta):
 	AKmagaz = clamp(AKmagaz, 0, 30)
 	AKall = clamp(AKall,0, 999999999999)
 	shootgunmagaz = clamp(shootgunmagaz, 0, 8)
+	shootgunall = clamp(shootgunall,0, 999999999999)
 	if Input.is_action_just_pressed("R") and AK == true:
 		if AKall >= 30 and AKmagaz < 30 and AKall != 0:
 			var AKrezerv = 30 - AKmagaz
@@ -57,10 +56,14 @@ func _process(delta):
 			AKall -= AKrezerv
 
 	if Input.is_action_just_pressed("R") and shootgun == true:
-		if shootgunall >= 0 and shootgunmagaz < 8:
+		if shootgunall >= 8 and shootgunmagaz < 8 and shootgunall != 0:
 			var shootgunrezerv = 8 - shootgunmagaz
 			shootgunall -= shootgunrezerv
 			shootgunmagaz += shootgunrezerv
+		elif shootgunall > 0:
+			var shootgunrezerv = shootgunall
+			shootgunmagaz += shootgunrezerv
+			shootgunall -= shootgunrezerv
 
 
 func shoot():

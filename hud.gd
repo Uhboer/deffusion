@@ -20,4 +20,5 @@ func _process(delta):
 		healthbar.texture_progress = bar_red
 	
 	$AKammo.text = str(wearpon.AKmagaz, "/", wearpon.AKall)
+	$shoogunammo.text = str(wearpon.shootgunmagaz, "/", wearpon.shootgunall)
 	

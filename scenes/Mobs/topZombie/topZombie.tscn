@@ -1,10 +1,27 @@
-[gd_scene load_steps=17 format=3 uid="uid://bckmmctayvou0"]
+[gd_scene load_steps=22 format=3 uid="uid://bckmmctayvou0"]
 
 [ext_resource type="Script" path="res://scenes/Mobs/topZombie/top_zombie.gd" id="1_p6jj8"]
 [ext_resource type="Texture2D" uid="uid://bqq4xd0srr07t" path="res://sprites/Player/ZombieHard.png" id="1_v4mgl"]
+[ext_resource type="Texture2D" uid="uid://mwx58308l03v" path="res://sprites/Player/attackZombie.png" id="2_ebvvu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gjxc"]
 radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e16bb"]
+atlas = ExtResource("2_ebvvu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cshp4"]
+atlas = ExtResource("2_ebvvu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlced"]
+atlas = ExtResource("2_ebvvu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu6rc"]
+atlas = ExtResource("2_ebvvu")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgjhk"]
 atlas = ExtResource("1_v4mgl")
@@ -48,6 +65,23 @@ region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iilrh"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e16bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cshp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlced")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu6rc")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kgjhk")
@@ -104,7 +138,7 @@ shape = SubResource("CircleShape2D_7gjxc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_iilrh")
-animation = &"Run"
+animation = &"Attack"
 autoplay = "Idle"
 
 [node name="detectZone" type="Area2D" parent="."]
@@ -123,6 +157,16 @@ text = "1488"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackZone2"]
 shape = SubResource("RectangleShape2D_fux0m")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="Timer" type="Timer" parent="Sounds/MoveSound"]
+
+[node name="IdleSound" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="Timer" type="Timer" parent="Sounds/IdleSound"]
 
 [connection signal="body_entered" from="detectZone" to="." method="_on_detect_zone_body_entered"]
 [connection signal="body_entered" from="attackZone2" to="." method="_on_attack_zone_2_body_entered"]

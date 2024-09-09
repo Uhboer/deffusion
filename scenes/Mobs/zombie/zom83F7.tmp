@@ -1,27 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://by7vcldpp7kdp"]
+[gd_scene load_steps=17 format=3 uid="uid://by7vcldpp7kdp"]
 
 [ext_resource type="Script" path="res://scenes/Mobs/zombie/zombie.gd" id="1_30j87"]
 [ext_resource type="Texture2D" uid="uid://c6g07yca5gwy7" path="res://sprites/Player/Zombie.png" id="2_gd7f3"]
-[ext_resource type="Texture2D" uid="uid://irx5d5vbuotx" path="res://sprites/Player/attack.png" id="2_ncchn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_um4v8"]
 radius = 5.5
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kb287"]
-atlas = ExtResource("2_ncchn")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rgohy"]
-atlas = ExtResource("2_ncchn")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_my47x"]
-atlas = ExtResource("2_ncchn")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghrtq"]
-atlas = ExtResource("2_ncchn")
-region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fuc16"]
 atlas = ExtResource("2_gd7f3")
@@ -67,23 +50,6 @@ region = Rect2(288, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kb287")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rgohy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_my47x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ghrtq")
-}],
-"loop": true,
-"name": &"Attack",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_fuc16")
 }, {
 "duration": 1.0,
@@ -120,7 +86,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vrawt"]
@@ -138,9 +104,8 @@ shape = SubResource("CircleShape2D_um4v8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_q1s3s")
-animation = &"Attack"
+animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.968149
 
 [node name="detectZone" type="Area2D" parent="."]
 
@@ -159,6 +124,8 @@ text = "1488"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackZone"]
 shape = SubResource("RectangleShape2D_4tr8e")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="detectZone" to="." method="_on_detect_zone_body_entered"]
 [connection signal="body_entered" from="attackZone" to="." method="_on_attack_zone_body_entered"]
